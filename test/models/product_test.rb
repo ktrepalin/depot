@@ -16,8 +16,8 @@ class ProductTest < ActiveSupport::TestCase
 	test "product price must be positive" do
 		# цена товара должна быть положительной
 		product = Product.new(title: "My Book Title",
-		description: "yyy",
-		image_url: "zzz.jpg")
+			description: "yyy",
+			image_url: "zzz.jpg")
 		product.price = -1
 		assert product.invalid?
 		assert_equal ["must be greater than or equal to 0.01"],
@@ -62,4 +62,11 @@ class ProductTest < ActiveSupport::TestCase
 		assert_equal ["has already been taken"], product.errors[:title]
 		# уже было использовано
 	end	
+	test "product name mast be 15 symbols max" do
+		product = Product.new(title: "012345678910111213",
+			description: "yyy",
+			price: 1)
+		assert product.invalid?
+		assert_equal ["is too long (maximum is 15 characters)"], product.errors[:title]
+	end
 end
