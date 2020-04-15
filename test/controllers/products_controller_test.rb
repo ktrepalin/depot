@@ -15,6 +15,9 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     get products_url
     assert_response :success
     # assert_not_nil assigns(:products)
+    assert_select '#main .list_description', 3
+    assert_select 'dt', 'ProgRuby'
+    assert_select '#main .list_actions a', minimum: 9
   end
 
   test "should get new" do

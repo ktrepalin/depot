@@ -6,5 +6,8 @@ class Product < ApplicationRecord
 	validates :image_url, allow_blank: true, format: {
 		with: %r{\.(gif|jpg|png)\Z}i,
 		message: 'URL должен указывать на изображение формата GIF, JPG или PNG.'
-}
+	}
+	def self.latest
+		Product.order(:updated_at).last
+	end	
 end
