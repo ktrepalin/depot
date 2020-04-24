@@ -1,0 +1,18 @@
+// var cart = document.querySelector("#users");
+// cart.insertAdjacentHTML("success", "<%= j render(@cart) %>");
+// alert( 'Привет, мир!' );
+// var jq = jQuery.noConflict();
+// document.getElementById("cart").innerHTML = ("<%= j render(@cart) %>");
+// document.write("<%= j render(@cart) %>");
+// document.getElementById("cart").appendChild( ("<%= j render(@cart) %>"));
+// contents = ("<%= j render(@cart) %>");
+// console.log(("<%= j render(@cart) %>"))
+// import Rails from '@rails/ujs';
+// $(function(){
+//   });
+$('#notice').hide();
+
+if ($('#cart tr').length == 1) { $('#cart').show('blind', 1000); }
+$('#cart').html("<%= escape_javascript render(@cart) %>");
+$('#current_item').css({'background-color':'#88ff88'}).
+animate({'background-color':'#114411'}, 1000);
