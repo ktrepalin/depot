@@ -37,10 +37,10 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
+        OrderNotifierMailer.received(@order).deliver rescue nil
         format.html { redirect_to store_url, notice: 'Thank you for your order' }
         format.json { render :show, status: :created, location: @order }
       else
-        puts "-- #{@order.errors.messages}"
         @cart = set_cart
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
