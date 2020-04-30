@@ -29,7 +29,7 @@ Product.create!(title: 'Prog Ruby',
   price: 49.95)
 # . . .
 
-Product.create!(title: 'Rails Test Prescriptions',
+Product.create!(title: 'Rails Test',
   description: 
     %{<p>
         <em>Rails Test Prescriptions</em> is a comprehensive guide to testing
