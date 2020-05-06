@@ -15,7 +15,7 @@ development:
   database: ps_development
   pool: 5
   timeout: 5000
-  username: psadm
+  username: postgres
   password: Test12345
 
 # Warning: The database defined as "test" will be erased and
@@ -31,6 +31,6 @@ production:
   database: ps_production
   pool: 5
   timeout: 5000
-  username: psadm
+  username: postgres
   password: Test12345
 
